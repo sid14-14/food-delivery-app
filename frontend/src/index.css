@@ -17,3 +17,12 @@ a {
   width: 80%;
   margin: auto;
 }
+/* this gives us animation effect: text on image(in homepage) when we reload  */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
