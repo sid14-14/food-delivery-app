@@ -3,10 +3,12 @@ import "./List.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const List = ({ url }) => {
+const List = () => {
+  const url =  "http://localhost:4000";
   const [list, setList] = useState([]);
   const fetchList = async () => {
     const response = await axios.get(`${url}/api/food/list`);
+    // console.log(response.data);
     if (response.data.success) {
       setList(response.data.data);
     } else {
@@ -15,6 +17,7 @@ const List = ({ url }) => {
   };
 
   const removeFood = async (foofId) => {
+    // console.log(foofId);
     const response = await axios.post(`${url}/api/food/remove`, { id: foofId });
     await fetchList();
     if (response.data.success) {
