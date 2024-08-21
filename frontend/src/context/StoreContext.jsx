@@ -31,9 +31,11 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
 
-  useEffect(()=>{ //when the cartitems are updated, we log it
-    console.log(cartItems);
-  }, [cartItems])
+  useEffect(() => { //when the cartitems are updated, we log it
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+      }
+  }, []);
   
   const contextValue = { //any el added to this obj we can access it from any component 
     food_list,
