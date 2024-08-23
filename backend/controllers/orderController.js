@@ -104,7 +104,7 @@ const updateStatus = async (req, res) => {
     res.json({ success: true, message: "Status Updated" })
   } catch (error) {
     console.log(error)
-    res.json({ success: false, message: "Error" })
+    res.json({ success: true, message: "Error" })
   }
 }
 
