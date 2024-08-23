@@ -20,6 +20,7 @@ const Orders = ({ url }) => {
   };
 
   const statusHandler = async (event, orderId) => {
+    // console.log(event, orderId)
     const response = await axios.post(url + "/api/order/status", {
       orderId,
       status: event.target.value,
@@ -46,7 +47,7 @@ const Orders = ({ url }) => {
                   <div>
                     <p className="order-item-food">
                       {order.items.map((item, index) => {
-                        if (index === order.items.length - 1) {
+                        if (index === order.items.length - 1) { //only for last item we dont add comma
                           return item.name + " x " + item.quantity;
                         } else {
                           return item.name + " x " + item.quantity + ", ";
