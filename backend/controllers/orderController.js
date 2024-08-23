@@ -9,8 +9,7 @@ const placeOrder = async (req, res) => {
 
   //INSERT FRONTEND URL
   // const frontend_url = "http://localhost:5173"
-  const frontend_url = "http://localhost:5174"
-
+  const frontend_url = "https://food-delivery-app-frontend-peei.onrender.com"
 
   try {
     const newOrder = new orderModel({
