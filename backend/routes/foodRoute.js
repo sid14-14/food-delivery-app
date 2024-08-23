@@ -13,7 +13,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage }) //this is a middleware
-
 foodRouter.post("/add", upload.single("image"), addFood) //to send data to server
 foodRouter.get("/list", listFood)
 foodRouter.post("/remove", removeFood)

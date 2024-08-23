@@ -29,15 +29,6 @@ const PlaceOrder = () => {
   //   console.log(data);
   // },[data])
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!token) {
-      navigate("/cart");
-    } else if (getTotalCartAmount() === 0) {
-      navigate("/cart");
-    }
-  }, [token]);
-
   const placeOrder = async (event) => {
     event.preventDefault();
     let orderItems = [];
@@ -64,6 +55,21 @@ const PlaceOrder = () => {
       alert("Error");
     }
   };
+
+  const navigate = useNavigate();
+  const { buttonRef } = useContext(StoreContext);
+  useEffect(() => {
+    if (!token) {
+      navigate("/cart");
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.click();
+        }
+      }, 100);
+    } else if (getTotalCartAmount() === 0) {
+      navigate("/cart");
+    }
+  }, [token, getTotalCartAmount, navigate]);
 
   return (
     <>

@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  //INSERT BACKEND LINK FOR ADMIN
   const url = "https://food-del-backend-yqk3.onrender.com";
   return (
     <>

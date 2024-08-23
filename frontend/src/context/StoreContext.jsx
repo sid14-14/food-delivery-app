@@ -4,9 +4,10 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000";
+  const url = "http://localhost:4000"; //INSERT YOUR BACKEND URL HERE
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
+  const buttonRef = useRef(null);
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) { //if user adds an items first time into the cart, we create a new entry
@@ -81,7 +82,7 @@ const StoreContextProvider = (props) => {
     url,
     token,
     setToken,
-
+    buttonRef,
   };
   return (
     <StoreContext.Provider value={contextValue}>
